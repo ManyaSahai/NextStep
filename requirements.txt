@@ -6,10 +6,10 @@ MarkupSafe
 Werkzeug
 numpy
 scipy
-sklearn
+scikit-learn
 matplotlib
 pandas
 flasgger
 streamlit
 seaborn
-scikit-learn
+
