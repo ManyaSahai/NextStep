@@ -12,7 +12,7 @@ regressor=pickle.load(pickleFile) # our model
 
 # **2. Loading Dataset**
 
-df = pd.read_csv(r'C:\Users\Admin\Desktop\career\mldata.csv')
+df = pd.read_csv(r'mldata.csv')
 
 df.head()
 
