@@ -1,6 +1,15 @@
-streamlit
+Flask
+gunicorn
+itsdangerous
+Jinja2
+MarkupSafe
+Werkzeug
+numpy
+scipy
+sklearn
 matplotlib
 pandas
-numpy
+flasgger
+streamlit
 seaborn
 scikit-learn
