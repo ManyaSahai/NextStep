@@ -346,18 +346,14 @@ def inputlist(Name,Contact_Number,Email_address,
 
 def main():
 
-  # with st.spinner('Wait for it...'):
-  #     time.sleep(5)
-  # st.success('Done!')
-
   html1="""
     <div style="text-align:center; text-shadow: 3px 1px 2px purple;">
-      <h1> NextStep 📈</h1>
+      <h1 style="font-size: 4em;"> NextStep 📈</h1>
     </div>
       """
-  st.markdown(html1,unsafe_allow_html=True) #simple html 
+  st.markdown(html1,unsafe_allow_html=True) #simple html
 
-  # Images
+  st.image("career.gif") 
 
 
   html2="""
@@ -366,20 +362,42 @@ def main():
     </div>
       """
   st.markdown(html2,unsafe_allow_html=True) #simple html 
+
+  if "form_completed" not in st.session_state:
+    st.session_state.form_completed = False
+
+        # Initialize variables
+  name = ""
+  contact_number = ""
+  email_address = ""
+
+  if not st.session_state.form_completed:
+    st.title("Your Information")
+
+    with st.form("user_info_form"):
+        name = st.text_input("Full Name")
+        contact_number = st.text_input("Contact Number")
+        email_address = st.text_input("Email Address")
+
+        submit_button = st.form_submit_button("Submit")
+
+        if submit_button:
+            if name and contact_number and email_address:
+                st.session_state.form_completed = True
+                st.success("Thanks for providing your information!")
+            else:
+                st.warning("Please fill out your name, contact number, and email address.")
+  
+  if st.session_state.form_completed:
+
+    st.title("SO ARE YOU READY?? \n Let's begin with you prediction!")
+
+
+
+  st.image("quotes.png")
+     
  
-  st.sidebar.title("Your Information")
-
-  Name = st.sidebar.text_input("Full Name")
-
-  Contact_Number = st.sidebar.text_input("Contact Number")
-
-  Email_address = st.sidebar.text_input("Email address")
-
-  if not Name and Email_address:
-    st.sidebar.warning("Please fill out your name and EmailID")
-
-  if Name and Contact_Number and Email_address:
-    st.sidebar.success("Thanks!")
+  
 
   Logical_quotient_rating = logical_quotient_quiz()
 
@@ -394,91 +412,93 @@ def main():
   st.write(public_speaking_points)
 
   self_learning_capability = st.selectbox(
-    'Self Learning Capability',
+    'Do you have self learning capability',
     ('Yes', 'No')
     )
   # st.write('You selected:', self_learning_capability)
 
   Extra_courses_did = st.selectbox(
-    'Extra courses',
-  ('Yes', 'No')
+    'Did you take any extra courses?',
+  ('Yes', 'No'),
   )
+  if Extra_courses_did == "Yes":
+    placeholder = st.text_input("Please specify:")
   # st.write('You selected:', Extra_courses_did)
 
   Taken_inputs_from_seniors_or_elders = st.selectbox(
-    'Took advice from seniors or elders',
+    'Did you take advice from seniors or elders?',
     ('Yes', 'No')
     )
-  # st.write('You selected:', Taken_inputs_from_seniors_or_elders)
+
 
   worked_in_teams_ever = st.selectbox(
-    'Team Co-ordination Skill',
+    'Would you consider yourself adept at team coordination skills?',
     ('Yes', 'No')
     )
-  # st.write('You selected:', worked_in_teams_ever)
+
 
   Introvert = st.selectbox(
-    'Introvert',
+    'Are you an introvert?',
     ('Yes', 'No')
     )
   # st.write('You selected:', Introvert)
 
   reading_and_writing_skills = st.selectbox(
-    'Reading and writing skills',
+    'Rate your Reading and Writing skills:',
     ('poor','medium','excellent')
     )
   st.write('You selected: **{}**' .format(reading_and_writing_skills))
 
   memory_capability_score = st.selectbox(
-    'Memory capability score',
+    'Rate your Memory capability:',
     ('poor','medium','excellent')
     )
   st.write('You selected: **{}**' .format(memory_capability_score))
 
   smart_or_hard_work = st.selectbox(
-    'Smart or Hard Work',
+    'Are you a smart worker or a hard worker?',
     ('Smart worker', 'Hard Worker')
     )
   st.write('You selected: **{}**' .format(smart_or_hard_work))
 
   Management_or_Techinical = st.selectbox(
-    'Management or Techinical',
+    'Which field would you prefer?',
     ('Management', 'Technical')
     )
   st.write('You selected: **{}**' .format(Management_or_Techinical))
 
   Interested_subjects = st.selectbox(
-    'Interested Subjects',
+    'Which subject do you find the most interesting?',
     ('programming', 'Management', 'data engineering', 'networks', 'Software Engineering', 'cloud computing', 'parallel computing', 'IOT', 'Computer Architecture', 'hacking')
     )
   st.write('You selected: **{}**' .format(Interested_subjects))
 
   Interested_Type_of_Books = st.selectbox(
-    'Interested Books Category',
+    'Which genre of books do you usually prefer?',
     ('Series', 'Autobiographies', 'Travel', 'Guide', 'Health', 'Journals', 'Anthology', 'Dictionaries', 'Prayer books', 'Art', 'Encyclopedias', 'Religion-Spirituality', 'Action and Adventure', 'Comics', 'Horror', 'Satire', 'Self help', 'History', 'Cookbooks', 'Math', 'Biographies', 'Drama', 'Diaries', 'Science fiction', 'Poetry', 'Romance', 'Science', 'Trilogy', 'Fantasy', 'Childrens', 'Mystery')
     )
   st.write('You selected: **{}**' .format(Interested_Type_of_Books))
 
   certifications = st.selectbox(
-    'Interested_Type_of_Books',
+    'Which book do you find the most interesting?',
     ('information security', 'shell programming', 'r programming', 'distro making', 'machine learning', 'full stack', 'hadoop', 'app development', 'python')
     )
   st.write('You selected: **{}**' .format(certifications))
 
   workshops = st.selectbox(
-    'Workshops Attended',
+    'What kind of workshops have you attended?',
     ('Testing', 'database security', 'game development', 'data science', 'system designing', 'hacking', 'cloud computing', 'web technologies')
     )
   st.write('You selected: **{}**' .format(workshops))
   
   Type_of_company_want_to_settle_in = st.selectbox(
-    'Type of Company You Want to Settle In ',
+    'What Type of Company do you want to Settle in? ',
     ('BPA', 'Cloud Services', 'product development', 'Testing and Maintainance Services', 'SAaS services', 'Web Services', 'Finance', 'Sales and Marketing', 'Product based', 'Service Based')
     )
   st.write('You selected: **{}**' .format(Type_of_company_want_to_settle_in))
   
   interested_career_area = st.selectbox(
-    'Interested Career Area',
+    'What is your interested career field?',
     ('testing', 'system developer', 'Business process analyst', 'security', 'developer', 'cloud computing')
     )
   st.write('You selected: **{}**' .format(interested_career_area))
@@ -486,9 +506,10 @@ def main():
   result=""
   
   if st.button("Predict"):
-    result=inputlist(Name,Contact_Number,Email_address,Logical_quotient_rating, coding_skills_rating, hackathons, 
+    result=inputlist(name, contact_number,email_address,Logical_quotient_rating, coding_skills_rating, hackathons, 
                     public_speaking_points, self_learning_capability,Extra_courses_did, 
-                     Taken_inputs_from_seniors_or_elders,worked_in_teams_ever, Introvert,
+                    Taken_inputs_from_seniors_or_elders,
+                     worked_in_teams_ever, Introvert,
                      reading_and_writing_skills,memory_capability_score, smart_or_hard_work, 
                      Management_or_Techinical,Interested_subjects, Interested_Type_of_Books,
                      certifications, workshops, Type_of_company_want_to_settle_in, interested_career_area) 
@@ -523,24 +544,13 @@ def main():
      """)
 
     create_table()
-    add_data(Name,Contact_Number,Email_address,Logical_quotient_rating, coding_skills_rating, hackathons, 
+    add_data(name,contact_number,email_address,Logical_quotient_rating, coding_skills_rating, hackathons, 
             public_speaking_points, self_learning_capability,Extra_courses_did, 
             Taken_inputs_from_seniors_or_elders,worked_in_teams_ever, Introvert,
             reading_and_writing_skills,memory_capability_score, smart_or_hard_work, 
             Management_or_Techinical,Interested_subjects, Interested_Type_of_Books,
             certifications, workshops, Type_of_company_want_to_settle_in, interested_career_area)
 
-  # if choice == "Add Post":
-  #     st.subheader("Add Your Article")
-  #     create_table()
-  #     blog_title = st.text_input('Enter Post Title')
-  #     blog_author = st.text_input("Enter Author Name",max_chars=50)
-  #     blog_article = st.text_area("Enter Your Message",height=200)
-  #     blog_post_date = st.date_input("Post Date")
-  #     if st.button("Add"):
-  #       add_data(blog_author,blog_title,blog_article,blog_post_date)
-  #       st.success("Post::'{}' Saved".format(blog_title))
 
- 
 if __name__=='__main__':
     main()
