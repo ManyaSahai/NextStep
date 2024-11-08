@@ -108,8 +108,15 @@ print(len(n))
 
 print('The shape of our training set: %s professionals and %s features'%(df.shape[0],df.shape[1]))
 
+def feedback_link():
+    st.subheader("We Value Your Feedback!")
 
-# **5. Feature Engineering**
+    google_form_url = "https://docs.google.com/forms/d/e/1FAIpQLScbXA3UIzUvQbfs-38q5Nc2XY1vjNoatikNRtPG32rScWCDfg/viewform"
+
+    st.markdown(f"Please provide your feedback by filling out this form: [Feedback Form]({google_form_url})")
+ 
+  
+# *5. Feature Engineering**
 
 ## (a) Binary Encoding for Categorical Variables
 
@@ -550,6 +557,8 @@ def main():
             reading_and_writing_skills,memory_capability_score, smart_or_hard_work, 
             Management_or_Techinical,Interested_subjects, Interested_Type_of_Books,
             certifications, workshops, Type_of_company_want_to_settle_in, interested_career_area)
+
+    feedback_link()
 
 
 if __name__=='__main__':
