@@ -19,5 +19,6 @@ def add_data(Name,Contact_Number,Email_address,Logical_quotient_rating, coding_s
        	Extra_courses_did, Taken_inputs_from_seniors_or_elders,worked_in_teams_ever,Introvert, 
 		reading_and_writing_skills, memory_capability_score, smart_or_hard_work, 
 		Management_or_Techinical, Interested_subjects, Interested_Type_of_Books,certifications, 
-	conn.commit() 
 		workshops, Type_of_company_want_to_settle_in, interested_career_area))
+	
+	conn.commit() 
